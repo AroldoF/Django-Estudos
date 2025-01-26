@@ -91,7 +91,10 @@ table {
     padding: 2px;
     width: auto; 
 }
-
+form{
+    display: flex;
+    align-items: center;
+}
 .busca__fundo {
     align-items: center;
     background-color: #041A37;
@@ -105,8 +108,9 @@ table {
     align-items: center;
     background-color: transparent;
     border: none;
+    color: #FFFFFF;
     font-size: 1rem;
-    height: 24px;
+    height: 100%;
     padding: 10px;
     width: 500px;
 }
@@ -117,25 +121,25 @@ table {
     height: 2rem;
 }
 
-.cards {
+.cartoes {
     width: 100%;
 }
 
-.cards__titulo {
+.cartoes__titulo {
     color: #7B78E5;
     font-size: 2rem;
     line-height: 3rem;
     margin-bottom: 1.5rem;
 }
 
-.cards__lista{
+.cartoes__lista{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: space-between;
 }
 
-.card {
+.cartao {
     border-radius: 10px;
     box-shadow: 0px 10px 10px #00000050;
     color: #FFFFFF;
@@ -144,12 +148,12 @@ table {
     width: 450px;
 }
 
-.card__imagem {
+.cartao__imagem {
     width: 450px;
     border-radius: 10px 10px 0 0;
 }
 
-.card__tag {
+.cartao__tag {
     background-color: #D9D9D940;
     border-radius: 8px;
     border: 2px solid transparent;
@@ -163,30 +167,40 @@ table {
     width: 100px;
 }
 
-.card__info {
+.cartao__info {
     font-size: 1.2rem;
     padding: 0 1.5rem 1rem 1.5rem;
 }
 
-.card__titulo {
+.cartao__titulo {
     font-weight: bold;
     line-height: 1.2rem;
     margin-top: 0.8em;
 }
 
-.card__texto {
+.cartao__texto {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.card__texto img {
+.cartao__texto img {
     cursor: pointer;
 }
 
-.card__descricao {
+.cartao__descricao {
     font-size: 0.6em;
     margin-top: 0.8em;
+}
+
+.cartao__links {
+    text-decoration: none;
+    color: #D9D9D9;
+}
+
+.cartao__links:hover {
+    text-decoration: none;
+    color: #D9D9D9;
 }
 
 .galeria {
@@ -333,6 +347,8 @@ table {
 }
 
 .rodape {
+    bottom: 0;
+    position: relative;
     background-color: #04244F;
     width: 100%;
     padding: 1.5rem 3rem;
@@ -373,7 +389,7 @@ table {
     margin-right: 1.5rem;
     border-radius: 8px;
     padding: .8rem .5rem;
-    width: 100px;
+    width: 120px;
     text-align: center;
     border: 2px solid transparent;
 }
@@ -381,4 +397,9 @@ table {
 .tags__tag:hover {
     border: 2px solid #7B78E5;
     cursor: pointer;
+}
+
+.busca__botao{
+    background-color: transparent;
+    border: none;
 }
