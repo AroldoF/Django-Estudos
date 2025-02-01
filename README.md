@@ -21,22 +21,23 @@ Este projeto foi desenvolvido utilizando **Django**, **Django REST Framework** e
 - **Django Template** (Frontend)
 - **Swagger e Redoc** (Documentação da API)
 
+## 🗄️ Banco de Dados
+
+O banco de dados escolhido foi o **SQLite**, que é nativo do próprio Django. Essa escolha foi feita para garantir uma integração mais fácil e centralizada no desenvolvimento do projeto.
+
 ## 🔑 Credenciais de Acesso
 
 Para testar a visualização do faturamento total:
-
 - **Usuário:** dono
 - **Senha:** dono1234
 
 Para acesso total como superusuário:
-
 - **Usuário:** aroldo
 - **Senha:** 123456
 
 ## 📖 Documentação da API
 
 A documentação está disponível em:
-
 - [Swagger](http://localhost:8000/swagger/)
 - [Redoc](http://localhost:8000/redoc/)
 
@@ -45,7 +46,6 @@ A documentação está disponível em:
 A API está disponível em: [http://localhost:8000/api/](http://localhost:8000/api/)
 
 ### Recursos disponíveis:
-
 - **/api/empresa/** → CRUD de empresas
 - **/api/produto/** → CRUD de produtos
 - **/api/venda/** → CRUD de vendas
@@ -53,36 +53,36 @@ A API está disponível em: [http://localhost:8000/api/](http://localhost:8000/a
 
 ## 🎯 Como Executar o Projeto
 
-### 1️⃣ Criar e ativar um ambiente virtual
+### 1️⃣ Acesse a pasta do projeto
+```bash
+cd Nadic
+```
+
+### 2️⃣ Criar e ativar um ambiente virtual
 
 #### Windows (PowerShell)
-
 ```powershell
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
 
 #### Linux/Mac
-
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 ```
 
-### 2️⃣ Instalar as dependências
-
+### 3️⃣ Instalar as dependências
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Aplicar as migrações do banco de dados
-
+### 4️⃣ Aplicar as migrações do banco de dados
 ```bash
 python manage.py migrate
 ```
 
-### 4️⃣ Executar o servidor
-
+### 5️⃣ Executar o servidor
 ```bash
 python manage.py runserver
 ```
