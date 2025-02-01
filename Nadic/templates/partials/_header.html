@@ -1,0 +1,17 @@
+{%load static%}
+
+<div class="pagina-inicial">
+<header class="cabecalho">
+    <img src="{% static 'assets/ícones\1x\companhia.png' %}" alt="Logo" width="60px"/>
+    {% include "partials/_alertas.html" %}
+    <div class="cabecalho__busca">
+        <div class="busca__fundo">
+            <form action="{% url 'buscar' %}" autocomplete="off">
+                <input class="busca__input" type="text" name="buscar" autocomplete="off" placeholder="O que você procura?" >
+                <button class="busca__botao" type="submit">
+                    <img class="busca__icone" src="{% static 'assets/ícones/1x/search.png' %}" alt="ícone de search">   
+                </button>
+            </form>
+        </div>
+    </div>
+</header>

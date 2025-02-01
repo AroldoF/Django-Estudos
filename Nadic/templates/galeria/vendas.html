@@ -1,0 +1,57 @@
+{% load static %}
+{% include "galeria/partials/_base.html" %}
+{% block fontes %}
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% include "partials/_header.html" %}
+{% include "partials/_menu.html" %}
+
+            <section class="conteudo">
+                <section class="imagem">
+                    <div class="imagem__conteudo">
+                    <a href="{% url 'nova_venda' produto.id %}">
+                        <button class="btn btn-success col-12 venda" style="padding: top 5px;">Nova Venda</button>
+                    </a>
+                        <div class="informacoes">
+                            {% if vendas %}
+                                {% for venda in vendas %}
+                                    <div class="imagem__titulo">
+                                        <p>Sobre a venda</p>
+                                        <p class="imagem__texto">Produto: {{ venda.produto }}</p>
+                                        <p class="imagem__texto">Quantidade: {{ venda.quantidade }}</p>
+                                        <p class="imagem__texto">Valor Total: {{ venda.valor_total }}</p>
+                                        <p class="imagem__texto">Cliente: {{ venda.cliente }}</p>
+                                        <p class="imagem__texto">Data da venda: {{ venda.data }}</p>
+                                        <a href="{% url 'editar_venda' venda.id %}">
+                                            <button class="btn btn-success col-12" style="padding: top 5px;">Editar</button>
+                                        </a>
+                                        <a class="delete_espaco" href="{% url 'deletar_venda' venda.id %}">
+                                            <button  class="btn btn-danger col-12 delete_espaco" style="padding: top 5px;">Deletar</button>
+                                        </a>                      
+                                    </div>          
+                                {% endfor %}
+                            {% else %}     
+                                <div>
+                                    <p >Não há vendas para esse produto</p>
+                                        <style scoped>
+                                          p {
+                                            color: white;
+                                          }
+                                        </style>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+{% include "partials/_footer.html" %}
+<style>
+    .rodape{
+        position: relative;
+    }
+</style>
+</body>
+</html>

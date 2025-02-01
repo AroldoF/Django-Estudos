@@ -1,0 +1,32 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block fontes %}
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+            <section class="conteudo">
+                <section class="imagem">
+                    <div class="imagem__conteudo">
+                        <div class="imagem__info">
+                            <div class="imagem__texto">
+                                <p class="imagem__titulo">Sobre a empresa</p>
+                                <p class="imagem__texto">Nome: {{ empresa.nome }}</p>
+                                <p class="imagem__texto">Faturamento Total: {{ empresa.faturamento_total }}</p>
+                            </div>
+                            <div>
+                                <a href="{% url 'editar_empresa' empresa.nome %}">
+                                    <button class="btn btn-success col-12" style="padding: top 5px;">Editar</button>
+                                </a>
+                                <a href="{% url 'deletar_empresa' empresa.id %}">
+                                    <button class="btn btn-danger col-12" style="padding: top 5px;">Deletar</button>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+{% endblock %}

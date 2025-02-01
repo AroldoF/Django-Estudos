@@ -1,0 +1,48 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block fontes %}
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+            <section class="conteudo">
+                <section class="imagem">
+                    <div class="imagem__conteudo">
+                        {% comment %} {% if produtos.imagem == "" or produtos.imagem == null%}
+                            <img class="imagem__imagem" src="{% static 'assets/imagens/galeria/not-found.png'%}">
+                        {% else%}
+                            <img class="imagem__imagem" src="{{ produtos.imagem }}">
+                        {% endif %} {% endcomment %}
+                        <div class="imagem__info">
+                            <div class="imagem__texto">
+                                <p class="imagem__titulo">Nome do produto: </p>
+                                <p class="imagem__texto">{{ produtos.nome }}</p>
+                                <p class="imagem__titulo">Descrição do produto:</p>
+                                <p class="imagem__texto">{{ produtos.descricao }}</p>
+                                <p class="imagem__titulo">Preço do produto:</p>
+                                <p class="imagem__texto">{{ produtos.preco }}</p>
+                                <p class="imagem__titulo">Quantidade em Estoque:</p>
+                                <p class="imagem__texto">{{ produtos.estoque }}</p>
+                                <p class="imagem__titulo">Categoria:</p>
+                                <p class="imagem__texto">{{ produtos.categoria }}</p>
+                                <p class="imagem__titulo">Empresa:</p>
+                                <a href="{% url 'empresa' produtos.empresa %}" class="imagem__texto"> {{ produtos.empresa }}</a>
+                                <p class="imagem__titulo">Vendas do Produto</p>
+                                <a href="{% url 'vendas' produtos.id %}" class="imagem__texto">Vendas</a>
+                            </div>
+                            <div>
+                                <a href="{% url 'editar_imagem' produtos.id %}">
+                                    <button class="btn btn-success col-12" style="padding: top 5px;">Editar</button>
+                                </a>
+                                <a href="{% url 'deletar_imagem' produtos.id %}">
+                                    <button class="btn btn-danger col-12" style="padding: top 5px;">Deletar</button>
+                                </a> 
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block fontes %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+            <section class="conteudo">               
+                <section class="tags">
+                    <p class="tags__titulo">Busque por tags:</p>
+                    <ul class="tags__lista">
+                        <li class="tags__tag"><a href="{% url 'filtro' 'ELETRÔNICOS' %}" class="btn" style="color: #C9C9C9;">Eletrônicos</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'ROUPAS' %}" class="btn" style="color: #C9C9C9;">Roupas</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'ACESSÓRIOS' %}" class="btn" style="color: #C9C9C9;">Acessórios</a></li>
+                        <li class="tags__tag"><a href="{% url 'filtro' 'DECORAÇÃO' %}" class="btn" style="color: #C9C9C9;">Decoração</a></li>
+                    </ul>
+                </section>
+                <section class="galeria">
+                    <div class="cartoes">
+                        <h2 class="cartoes__titulo">Navegue pelos produtos</h2>
+                        <ul class="cartoes__lista">
+                            {% if cards %}
+                            {% for produto in cards %}
+                            <li class="cartao">
+                                <a href="{% url 'imagem' produto.id %}">
+                                {% comment %} <a href="{% url 'imagem' produto.id %}">
+                                    {% if produto.imagem == "" or produto.imagem == null %}
+                                        <img class="cartao__imagem" src="{% static '/assets/imagens/galeria/not-found.png'%}" alt="foto">
+                                    {% else %}
+                                        <img class="cartao__imagem" src="{{ produto.imagem }}" alt="foto">
+                                    {% endif %}
+                                </a> {% endcomment %}
+                                <div class="cartao__info">
+                                    <p class="cartao__titulo">{{ produto.nome }}</p>
+                                    <div class="cartao__texto">
+                                        <p class="cartao__descricao">{{ produto.descricao }}</p>
+                                        <span>
+                                            <img src="{% static '/assets/ícones/1x/favorite_outline.png'%}" alt="ícone de coração">
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>                         
+                            </li>
+                            {% endfor %}
+                            {% else %}
+                                <div class="imagem__texto">
+                                    <p>Produtos não encontrados</p>
+                                </div>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+{% endblock %}
