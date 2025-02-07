@@ -47,13 +47,15 @@ class VendaForm(forms.ModelForm):
 class EmpresaForm(forms.ModelForm):
     class Meta:
         model = Empresa
-        fields = ['nome', 'faturamento_total']
+        fields = ['nome', 'faturamento_total', 'dono']
         labels = {
             'nome': 'Nome',
             'faturamento_total': 'Faturamento Total',
+            'dono': 'Dono',
         }
         
         widgets = {
             "nome": forms.TextInput(attrs={'class': 'form-control'}),
             "faturamento_total": forms.NumberInput(attrs={'class': 'form-control'}),
+            "dono": forms.Select(attrs={'class': 'form-control'})
         }
